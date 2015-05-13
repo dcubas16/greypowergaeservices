@@ -9,26 +9,14 @@
 			http://www.springframework.org/schema/mvc 
 			http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
 
-	<!-- Activates various annotations to be detected in bean classes -->
-	<context:annotation-config />
-<!-- 	<context:property-placeholder properties-ref="deployProperties" /> -->
-
-	<!-- Scans the classpath for annotated components that will be auto-registered 
-		as Spring beans. For example @Controller and @Service. Make sure to set the 
-		correct base-package -->
-	<context:component-scan base-package="org.greypowergaeservices.*" />
-
-	<!-- Configures the annotation-driven Spring MVC Controller programming 
-		model. Note that, with Spring 3.0, this tag works in Servlet MVC only! -->
-	<mvc:annotation-driven />
-
-<!-- 	<bean id="deployProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean" -->
-<!--         p:location="classpath:dataBaseConnection.properties" />	 -->
-        
-<!-- 	<import resource="classpath:org/greypowerservices/test-greypowerservices-hibernate-context-config.xml" /> -->
-	
-<!-- 	<mvc:interceptors> -->
-<!-- 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" -->
-<!-- 			p:paramName="locale" /> -->
-<!-- 	</mvc:interceptors> -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+		<property name="url" value="jdbc:hsqldb:mem:naturalfoods" />
+		<property name="username" value="sa" />
+		<property name="password" value="" />
+		<property name="initialSize" value="5" />
+		<property name="maxActive" value="10" />
+		<property name="poolPreparedStatements" value="true" />
+		<property name="maxOpenPreparedStatements" value="10" />
+	</bean>
 </beans>
