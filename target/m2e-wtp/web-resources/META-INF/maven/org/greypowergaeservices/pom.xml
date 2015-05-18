@@ -33,6 +33,82 @@
 	</prerequisites>
 
 	<dependencies>
+
+		 <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.core.version}</version>
+        </dependency>
+        
+        <!-- Hibernate Dependencies -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>3.3.2.GA</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-annotations</artifactId>
+            <version>3.4.0.GA</version>
+        </dependency>
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.8.0.GA</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+
+        <!-- Logging: Log4J -->
+<!--         <dependency> -->
+<!--             <groupId>commons-logging</groupId> -->
+<!--             <artifactId>commons-logging</artifactId> -->
+<!--             <version>1.1.1</version> -->
+<!--         </dependency> -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.5.8</version>
+        </dependency>
+<!--         <dependency> -->
+<!--             <groupId>log4j</groupId> -->
+<!--             <artifactId>log4j</artifactId> -->
+<!--             <version>1.2.15</version> -->
+<!--             <exclusions> -->
+<!--                 <exclusion> -->
+<!--                     <groupId>javax.mail</groupId> -->
+<!--                     <artifactId>mail</artifactId> -->
+<!--                 </exclusion> -->
+<!--                 <exclusion> -->
+<!--                     <groupId>javax.jms</groupId> -->
+<!--                     <artifactId>jms</artifactId> -->
+<!--                 </exclusion> -->
+<!--                 <exclusion> -->
+<!--                     <groupId>com.sun.jdmk</groupId> -->
+<!--                     <artifactId>jmxtools</artifactId> -->
+<!--                 </exclusion> -->
+<!--                 <exclusion> -->
+<!--                     <groupId>com.sun.jmx</groupId> -->
+<!--                     <artifactId>jmxri</artifactId> -->
+<!--                 </exclusion> -->
+<!--             </exclusions> -->
+<!--         </dependency> -->
+
+
 		<!-- Compile/runtime dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -92,13 +168,13 @@
 		</dependency>
 
 		<!-- MySQL Connector -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysql.connector.version}</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>mysql</groupId> -->
+<!-- 			<artifactId>mysql-connector-java</artifactId> -->
+<!-- 			<version>${mysql.connector.version}</version> -->
+<!-- 			<type>jar</type> -->
+<!-- 			<scope>compile</scope> -->
+<!-- 		</dependency> -->
 
 		<!-- QueryDSL -->
 		<dependency>
@@ -229,13 +305,13 @@
 				<artifactId>versions-maven-plugin</artifactId>
 				<version>2.1</version>
 				<executions>
-					<execution>
-						<phase>compile</phase>
-						<goals>
-							<goal>display-dependency-updates</goal>
-							<goal>display-plugin-updates</goal>
-						</goals>
-					</execution>
+<!-- 					<execution> -->
+<!-- 						<phase>compile</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>display-dependency-updates</goal> -->
+<!-- 							<goal>display-plugin-updates</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
 				</executions>
 			</plugin>
 			<plugin>
@@ -281,11 +357,11 @@
 						</jvmFlags -->
 				</configuration>
 				<executions>
-					<execution>
-						<goals>
-							<goal>endpoints_get_discovery_doc</goal>
-						</goals>
-					</execution>
+<!-- 					<execution> -->
+<!-- 						<goals> -->
+<!-- 							<goal>endpoints_get_discovery_doc</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
 				</executions>
 			</plugin>
 		</plugins>

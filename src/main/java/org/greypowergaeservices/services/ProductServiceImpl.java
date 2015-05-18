@@ -13,7 +13,7 @@ public class ProductServiceImpl implements ProductService {
 	ProductFactory productFactory = new ChemicalProductFactory();
 	
 	@Override
-	public UUID createProduct(Product product) {
+	public Long createProduct(Product product) {
 		// TODO Auto-generated method stub
 		return productFactory.createProduct(product);
 

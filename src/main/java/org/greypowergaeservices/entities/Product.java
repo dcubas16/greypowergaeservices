@@ -2,17 +2,39 @@ package org.greypowergaeservices.entities;
 
 import java.util.UUID;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+@Entity
+@Table(name = "PRODUCTS")
+@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Product {
 
-	private UUID id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="ID")
+	private Long id;
+	
+	@NotEmpty
+	@Column(name="NAME")
 	private String name;
+	
+	@Column(name="DESCRIPTION")
 	private String description;
 	
 	public Product() {
 		super();
 	}
 	
-	public Product(UUID id, String name, String description) {
+	public Product(Long id, String name, String description) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -25,10 +47,10 @@ public abstract class Product {
 		this.description = description;
 	}
 
-	public UUID getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(UUID id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {

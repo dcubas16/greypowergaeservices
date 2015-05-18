@@ -11,7 +11,7 @@
 
 	<!-- Activates various annotations to be detected in bean classes -->
 	<context:annotation-config />
-<!-- 	<context:property-placeholder properties-ref="deployProperties" /> -->
+	<context:property-placeholder properties-ref="deployProperties" />
 
 	<!-- Scans the classpath for annotated components that will be auto-registered 
 		as Spring beans. For example @Controller and @Service. Make sure to set the 
@@ -20,15 +20,10 @@
 
 	<!-- Configures the annotation-driven Spring MVC Controller programming 
 		model. Note that, with Spring 3.0, this tag works in Servlet MVC only! -->
-	<mvc:annotation-driven />
 
-<!-- 	<bean id="deployProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean" -->
-<!--         p:location="classpath:dataBaseConnection.properties" />	 -->
+	<bean id="deployProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean"
+        p:location="classpath:dataBaseConnection.properties" />	
         
-<!-- 	<import resource="classpath:org/greypowerservices/test-greypowerservices-hibernate-context-config.xml" /> -->
+	<import resource="classpath:org/greypowergaeservices/test-greypowergaeservices-database-config.xml" />
 	
-<!-- 	<mvc:interceptors> -->
-<!-- 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" -->
-<!-- 			p:paramName="locale" /> -->
-<!-- 	</mvc:interceptors> -->
 </beans>

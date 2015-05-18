@@ -6,5 +6,5 @@ import org.greypowergaeservices.entities.Product;
 
 public interface ProductService {
 
-	public UUID createProduct(Product product);
+	public Long createProduct(Product product);
 }

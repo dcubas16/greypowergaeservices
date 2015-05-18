@@ -2,14 +2,22 @@ package org.greypowergaeservices.business;
 
 import java.util.UUID;
 
+import org.greypowergaeservices.dao.ChemicalProductDAO;
+import org.greypowergaeservices.dao.ChemicalProductDAOImpl;
 import org.greypowergaeservices.entities.Product;
+
 
 public class ChemicalProductManagerImpl implements ProductManager {
 
+//	@Autowired
+	ChemicalProductDAO chemicalProductDAO = new ChemicalProductDAOImpl(); 
+	
 	@Override
-	public UUID createProduct(Product product) {
-		// TODO Auto-generated method stub
-		return null;
+	public Long createProduct(Product product) {
+
+		Long uuid = chemicalProductDAO.createProduct(product);
+		
+		return uuid;
 	}
 
 }

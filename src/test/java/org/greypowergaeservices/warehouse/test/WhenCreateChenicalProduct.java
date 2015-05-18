@@ -3,8 +3,6 @@ package org.greypowergaeservices.warehouse.test;
 
 import static org.junit.Assert.assertNotNull;
 
-import java.util.UUID;
-
 import org.greypowergaeservices.services.ProductService;
 import org.greypowergaeservices.test.util.ProductMother;
 import org.greypowergaeservices.test.util.TestConfigurator;
@@ -19,7 +17,7 @@ public class WhenCreateChenicalProduct  extends TestConfigurator {
 	@Test
 	public void thenShouldCreateChemicalProduct(){
 		
-		UUID uuid = productService.createProduct(ProductMother.getChemicalProduct());
+		Long uuid = productService.createProduct(ProductMother.getChemicalProduct());
 		
 		assertNotNull(uuid);
 	}
