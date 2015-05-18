@@ -1,7 +1,5 @@
 package org.greypowergaeservices.services;
 
-import java.util.UUID;
-
 import org.greypowergaeservices.business.ChemicalProductFactory;
 import org.greypowergaeservices.business.ProductFactory;
 import org.greypowergaeservices.entities.Product;

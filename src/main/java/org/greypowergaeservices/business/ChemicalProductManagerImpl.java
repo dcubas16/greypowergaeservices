@@ -1,7 +1,5 @@
 package org.greypowergaeservices.business;
 
-import java.util.UUID;
-
 import org.greypowergaeservices.dao.ChemicalProductDAO;
 import org.greypowergaeservices.dao.ChemicalProductDAOImpl;
 import org.greypowergaeservices.entities.Product;

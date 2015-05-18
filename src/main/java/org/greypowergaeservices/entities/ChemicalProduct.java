@@ -1,7 +1,5 @@
 package org.greypowergaeservices.entities;
 
-import java.util.UUID;
-
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
