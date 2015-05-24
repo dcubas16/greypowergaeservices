@@ -7,155 +7,71 @@
 	<groupId>org</groupId>
 	<artifactId>greypowergaeservices</artifactId>
 	<properties>
-		<appengine.app.version>1</appengine.app.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-		<spring.core.version>3.1.0.RELEASE</spring.core.version>
-		<spring.data.jpa.version>1.0.0.RELEASE</spring.data.jpa.version>
-		<hibernate.entitymanager.version>3.6.3.Final</hibernate.entitymanager.version>
-		<hibernate.jpa-api.version>2.0-cr-1</hibernate.jpa-api.version>
-		<querydsl.version>2.2.5</querydsl.version>
+		<springframework.version>4.1.6.RELEASE</springframework.version>
+		<hibernate.version>4.3.6.Final</hibernate.version>
+		<mysql.version>5.1.31</mysql.version>
+		<joda-time.version>2.3</joda-time.version>
 		<log4j.version>1.2.14</log4j.version>
-		<jackson.version>1.9.3</jackson.version>
-
-		<appengine.api.sdk.version>1.9.4</appengine.api.sdk.version>
-		<appengine.endpoints.version>1.9.4</appengine.endpoints.version>
-		<servlet-api.version>2.5</servlet-api.version>
-		<javax.inject.version>1</javax.inject.version>
+		
 		<junit.version>4.11</junit.version>
-		<mockito-all.version>1.9.5</mockito-all.version>
-		<appengine-testing.version>1.9.4</appengine-testing.version>
-		<appengine-api-stubs.version>1.9.4</appengine-api-stubs.version>
-
 	</properties>
-	<prerequisites>
-		<maven>3.1.0</maven>
-	</prerequisites>
 
 	<dependencies>
 
-		 <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>${spring.core.version}</version>
-        </dependency>
-        
-        <!-- Hibernate Dependencies -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>3.3.2.GA</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>persistence-api</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-annotations</artifactId>
-            <version>3.4.0.GA</version>
-        </dependency>
-        <dependency>
-            <groupId>javassist</groupId>
-            <artifactId>javassist</artifactId>
-            <version>3.8.0.GA</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-            <version>1.2.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <version>2.0.0</version>
-        </dependency>
-
-        <!-- Logging: Log4J -->
-<!--         <dependency> -->
-<!--             <groupId>commons-logging</groupId> -->
-<!--             <artifactId>commons-logging</artifactId> -->
-<!--             <version>1.1.1</version> -->
-<!--         </dependency> -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.5.8</version>
-        </dependency>
-<!--         <dependency> -->
-<!--             <groupId>log4j</groupId> -->
-<!--             <artifactId>log4j</artifactId> -->
-<!--             <version>1.2.15</version> -->
-<!--             <exclusions> -->
-<!--                 <exclusion> -->
-<!--                     <groupId>javax.mail</groupId> -->
-<!--                     <artifactId>mail</artifactId> -->
-<!--                 </exclusion> -->
-<!--                 <exclusion> -->
-<!--                     <groupId>javax.jms</groupId> -->
-<!--                     <artifactId>jms</artifactId> -->
-<!--                 </exclusion> -->
-<!--                 <exclusion> -->
-<!--                     <groupId>com.sun.jdmk</groupId> -->
-<!--                     <artifactId>jmxtools</artifactId> -->
-<!--                 </exclusion> -->
-<!--                 <exclusion> -->
-<!--                     <groupId>com.sun.jmx</groupId> -->
-<!--                     <artifactId>jmxri</artifactId> -->
-<!--                 </exclusion> -->
-<!--             </exclusions> -->
-<!--         </dependency> -->
-
-
-		<!-- Compile/runtime dependencies -->
+		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>${spring.core.version}</version>
-			<type>jar</type>
-			<scope>compile</scope>
+			<version>${springframework.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>${spring.core.version}</version>
-			<type>jar</type>
-			<scope>compile</scope>
+			<artifactId>spring-context</artifactId>
+			<version>${springframework.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
-			<version>${spring.core.version}</version>
-			<type>jar</type>
-			<scope>compile</scope>
+			<version>${springframework.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-oxm</artifactId>
-			<version>${spring.core.version}</version>
-			<type>jar</type>
-			<scope>compile</scope>
+			<artifactId>spring-orm</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${springframework.version}</version>
+			<scope>test</scope>
 		</dependency>
 
-		<!-- Data Mapper package is a high-performance data binding package built 
-			on Jackson JSON processor -->
+		<!-- Hibernate -->
 		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>${jackson.version}</version>
-			<type>jar</type>
-			<scope>compile</scope>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
 		</dependency>
 
-		<!-- Jackson is a high-performance JSON processor (parser, generator) -->
+		<!-- MySQL -->
 		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-core-asl</artifactId>
-			<version>${jackson.version}</version>
-			<type>jar</type>
-			<scope>compile</scope>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+
+		<!-- Joda-Time -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${joda-time.version}</version>
+		</dependency>
+
+		<!-- To map JodaTime with database type -->
+		<dependency>
+			<groupId>org.jadira.usertype</groupId>
+			<artifactId>usertype.core</artifactId>
+			<version>3.0.0.CR1</version>
 		</dependency>
 
 		<!-- Logger -->
@@ -166,132 +82,12 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-
-		<!-- MySQL Connector -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>mysql</groupId> -->
-<!-- 			<artifactId>mysql-connector-java</artifactId> -->
-<!-- 			<version>${mysql.connector.version}</version> -->
-<!-- 			<type>jar</type> -->
-<!-- 			<scope>compile</scope> -->
-<!-- 		</dependency> -->
-
-		<!-- QueryDSL -->
-		<dependency>
-			<groupId>com.mysema.querydsl</groupId>
-			<artifactId>querydsl-core</artifactId>
-			<version>${querydsl.version}</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.mysema.querydsl</groupId>
-			<artifactId>querydsl-jpa</artifactId>
-			<version>${querydsl.version}</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.mysema.querydsl</groupId>
-			<artifactId>querydsl-apt</artifactId>
-			<version>${querydsl.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<version>1.2.2</version>
-		</dependency>
-
-		<!-- Testing dependencies -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>${spring.core.version}</version>
-			<type>jar</type>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>3.1.0.RELEASE</version>
-		</dependency>
-
-		<!-- Validation -->
-		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>1.1.0.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>5.0.3.Final</version>
-		</dependency>
-
-		<!-- Web Services -->
-		<dependency>
-			<groupId>org.springframework.ws</groupId>
-			<artifactId>spring-ws-core</artifactId>
-			<version>2.0.0.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.ws.xmlschema</groupId>
-			<artifactId>xmlschema-core</artifactId>
-			<version>2.1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.ws.commons.schema</groupId>
-			<artifactId>XmlSchema</artifactId>
-			<version>1.4.5</version>
-		</dependency>
-
-		<!-- App Engine -->
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-api-1.0-sdk</artifactId>
-			<version>${appengine.api.sdk.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-endpoints</artifactId>
-			<version>${appengine.endpoints.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>${servlet-api.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-			<version>${javax.inject.version}</version>
-		</dependency>
-
-		<!-- Test Dependencies -->
+		
+				<!-- Test Dependencies -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>${mockito-all.version}	</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-testing</artifactId>
-			<version>${appengine-testing.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-api-stubs</artifactId>
-			<version>${appengine-api-stubs.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -305,13 +101,13 @@
 				<artifactId>versions-maven-plugin</artifactId>
 				<version>2.1</version>
 				<executions>
-<!-- 					<execution> -->
-<!-- 						<phase>compile</phase> -->
-<!-- 						<goals> -->
-<!-- 							<goal>display-dependency-updates</goal> -->
-<!-- 							<goal>display-plugin-updates</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
+					<!-- <execution> -->
+					<!-- <phase>compile</phase> -->
+					<!-- <goals> -->
+					<!-- <goal>display-dependency-updates</goal> -->
+					<!-- <goal>display-plugin-updates</goal> -->
+					<!-- </goals> -->
+					<!-- </execution> -->
 				</executions>
 			</plugin>
 			<plugin>
@@ -357,11 +153,11 @@
 						</jvmFlags -->
 				</configuration>
 				<executions>
-<!-- 					<execution> -->
-<!-- 						<goals> -->
-<!-- 							<goal>endpoints_get_discovery_doc</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
+					<!-- <execution> -->
+					<!-- <goals> -->
+					<!-- <goal>endpoints_get_discovery_doc</goal> -->
+					<!-- </goals> -->
+					<!-- </execution> -->
 				</executions>
 			</plugin>
 		</plugins>

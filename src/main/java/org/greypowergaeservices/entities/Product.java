@@ -9,7 +9,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.NotEmpty;
+//import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "PRODUCTS")
@@ -21,7 +21,7 @@ public abstract class Product {
 	@Column(name="ID")
 	private Long id;
 	
-	@NotEmpty
+//	@NotEmpty
 	@Column(name="NAME")
 	private String name;
 	
