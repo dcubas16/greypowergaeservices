@@ -9,7 +9,7 @@ public class ProductMother {
 		Product chemicalProduct = new ChemicalProduct();
 		chemicalProduct.setName("P2");
 		chemicalProduct.setDescription("P2 Description");
-		
+//		chemicalProduct.setChemicalFormula("Hola");
 		return chemicalProduct;
 	}
 }

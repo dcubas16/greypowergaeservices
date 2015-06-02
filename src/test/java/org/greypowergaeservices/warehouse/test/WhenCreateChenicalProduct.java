@@ -3,6 +3,7 @@ package org.greypowergaeservices.warehouse.test;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.greypowergaeservices.dao.ChemicalProductDAO;
 import org.greypowergaeservices.services.ProductService;
 import org.greypowergaeservices.test.util.ProductMother;
 import org.greypowergaeservices.test.util.TestConfigurator;
@@ -12,8 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class WhenCreateChenicalProduct  extends TestConfigurator {
 
 	@Autowired
-	ProductService productService;
+	ProductService productService; 
 
+//	@Autowired
+//	ChemicalProductDAO chemicalProductDAO; 
+	
 	@Test
 	public void thenShouldCreateChemicalProduct(){
 		
