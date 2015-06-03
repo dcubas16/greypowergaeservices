@@ -6,10 +6,10 @@ import org.greypowergaeservices.entities.Product;
 public class ProductMother {
 	public static Product getChemicalProduct()
 	{
-		Product chemicalProduct = new ChemicalProduct();
+		ChemicalProduct chemicalProduct = new ChemicalProduct();
 		chemicalProduct.setName("P2");
 		chemicalProduct.setDescription("P2 Description");
-//		chemicalProduct.setChemicalFormula("Hola");
+		chemicalProduct.setChemicalFormula("Hola");
 		return chemicalProduct;
 	}
 }
