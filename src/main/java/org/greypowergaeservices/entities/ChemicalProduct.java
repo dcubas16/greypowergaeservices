@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "CHEMICAL_PRODUCTS")
+@Table(name = "CHEMICAL_PRODUCT")
 @AttributeOverrides({
 	@AttributeOverride(name="name", column=@Column(name="NAME")),
 	@AttributeOverride(name="description", column=@Column(name="DESCRIPTION")),

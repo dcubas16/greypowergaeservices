@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "PRODUCTS")
+@Table(name = "PRODUCT")
 @Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Product {
 

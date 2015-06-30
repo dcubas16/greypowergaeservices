@@ -13,14 +13,17 @@ public class ProductMother {
 		chemicalProduct.setChemicalFormula("Hola");
 		return chemicalProduct;
 	}
-
+	
 	public static Product getJewelProduct() {
 		JewelProduct jewelProduct = new JewelProduct();
 		jewelProduct.setName("J1");
 		jewelProduct.setDescription("J1 Description");
-		jewelProduct.setQuantity(1);
-		jewelProduct.setUnitPrice(1.0);
-		jewelProduct.setSizes();
-		jewelProduct.setMaterials();
+//		jewelProduct.setImages(getImage());
+//		jewelProduct.setMaterials(getMaterials);
+//		jewelProduct.setQuantity(quantity);
+//		jewelProduct.setSize(size);
+//		jewelProduct.setUnitPrice(unitPrice);
+		return jewelProduct;
+		
 	}
 }
