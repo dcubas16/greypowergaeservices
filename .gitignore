@@ -4,3 +4,7 @@ target/
 /target/
 /greypowergaeservices/target
 /WebContent
+*/target/*
+*/target/**
+target/*
+target/**

@@ -3,6 +3,7 @@ package org.greypowergaeservices.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,7 +24,6 @@ public class Size {
 	@Column(name="NAME")
 	private String name;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "SIZE")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id", cascade=CascadeType.ALL, targetEntity=JewelProduct.class)
 	private Set<JewelProduct> jewelProducts = new HashSet<JewelProduct>(0);
-	
 }

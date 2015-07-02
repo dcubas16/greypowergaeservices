@@ -7,11 +7,16 @@
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="show_sql">true</property>
 		<property name="packagesToScan">org.greypowergaeservices.entities</property>
-		
-		<property name="hbm2ddl.auto">create</property>
-		<property name="import_files">org/greypowerservices/import.sql</property>
 
-		<mapping class="org.greypowergaeservices.entities.ChemicalProduct"/>
-		<mapping class="org.greypowergaeservices.entities.Product"/>
+<!-- 		<property name="hbm2ddl.auto">create-drop</property> -->
+		<property name="hbm2ddl.auto">create</property>
+		<property name="import_files">org/greypowergaeservices/import.sql</property>
+
+		<mapping class="org.greypowergaeservices.entities.Image" />
+		<mapping class="org.greypowergaeservices.entities.Material" />
+		<mapping class="org.greypowergaeservices.entities.Size" />
+		<mapping class="org.greypowergaeservices.entities.ChemicalProduct" />
+		<mapping class="org.greypowergaeservices.entities.Product" />
+		<mapping class="org.greypowergaeservices.entities.JewelProduct" />
 	</session-factory>
 </hibernate-configuration>

@@ -10,8 +10,7 @@ import javax.persistence.Table;
 @Table(name = "CHEMICAL_PRODUCT")
 @AttributeOverrides({
 	@AttributeOverride(name="name", column=@Column(name="NAME")),
-	@AttributeOverride(name="description", column=@Column(name="DESCRIPTION")),
-})
+	@AttributeOverride(name="description", column=@Column(name="DESCRIPTION"))})
 public class ChemicalProduct extends Product {
 
 	@Column(name="CHEMICAL_FORMULA")

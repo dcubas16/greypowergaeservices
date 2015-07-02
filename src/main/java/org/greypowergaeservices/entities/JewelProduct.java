@@ -5,21 +5,19 @@ import java.util.Set;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.ManyToMany;
 
 @Entity
 @Table(name = "JEWEL_PRODUCT")
 @AttributeOverrides({
 		@AttributeOverride(name = "name", column = @Column(name = "NAME")),
-		@AttributeOverride(name = "description", column = @Column(name = "DESCRIPTION")), })
+		@AttributeOverride(name = "description", column = @Column(name = "DESCRIPTION")) })
 public class JewelProduct extends Product {
 
 	@Column(name = "QUANTITY", nullable = false)
@@ -29,15 +27,16 @@ public class JewelProduct extends Product {
 	private Double unitPrice;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "SIZE_ID", nullable = false)
+	@JoinColumn(name = "SIZE_ID", nullable = true)
 	private Size size;
-
+	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "IMAGE_ID", nullable = false)
+	@JoinColumn(name = "IMAGE_ID", nullable = true)
 	private Image image;
 
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "JEWEL_MATERIAL", joinColumns = @JoinColumn(name = "ID"), inverseJoinColumns = @JoinColumn(name = "ID"))
+//	@ManyToMany(cascade = CascadeType.ALL)
+//	@JoinTable(name = "JEWEL_MATERIAL", joinColumns = @JoinColumn(name = "ID"), inverseJoinColumns = @JoinColumn(name = "ID"))
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "jewelProducts")
 	private Set<Material> materials = new HashSet<Material>(0);
 
 	
@@ -65,13 +64,13 @@ public class JewelProduct extends Product {
 		this.size = size;
 	}
 
-	public Set<Material> getMaterials() {
-		return materials;
-	}
-
-	public void setMaterials(Set<Material> materials) {
-		this.materials = materials;
-	}
+//	public Set<Material> getMaterials() {
+//		return materials;
+//	}
+//
+//	public void setMaterials(Set<Material> materials) {
+//		this.materials = materials;
+//	}
 
 	public Image getImage() {
 		return image;

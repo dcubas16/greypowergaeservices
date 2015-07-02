@@ -1,5 +1,9 @@
 package org.greypowergaeservices.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,7 +27,7 @@ public class Image {
 	@Column(name="IS_MAIN")
 	private boolean isMain;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "IMAGE")
-	private JewelProduct jewelProduct;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id", cascade=CascadeType.ALL, targetEntity=JewelProduct.class)
+	private Set<JewelProduct> jewelProducts = new HashSet<JewelProduct>(0);
 	
 }
