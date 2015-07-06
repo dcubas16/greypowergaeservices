@@ -31,7 +31,7 @@ public class ChemicalProduct extends Product {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ChemicalProduct(Long id, String name, String description) {
+	public ChemicalProduct(int id, String name, String description) {
 		super(id, name, description);
 		// TODO Auto-generated constructor stub
 	}

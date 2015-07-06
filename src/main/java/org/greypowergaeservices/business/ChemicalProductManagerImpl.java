@@ -12,9 +12,9 @@ public class ChemicalProductManagerImpl implements ProductManager {
 	private ChemicalProductDAO chemicalProductDAO; 
 	
 	@Override
-	public Long createProduct(Product product) {
+	public int createProduct(Product product) {
 
-		Long uuid = chemicalProductDAO.createProduct(product);
+		int uuid = chemicalProductDAO.createProduct(product);
 		
 		return uuid;
 	}

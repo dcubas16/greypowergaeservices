@@ -34,8 +34,6 @@ public class JewelProduct extends Product {
 	@JoinColumn(name = "IMAGE_ID", nullable = true)
 	private Image image;
 
-//	@ManyToMany(cascade = CascadeType.ALL)
-//	@JoinTable(name = "JEWEL_MATERIAL", joinColumns = @JoinColumn(name = "ID"), inverseJoinColumns = @JoinColumn(name = "ID"))
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "jewelProducts")
 	private Set<Material> materials = new HashSet<Material>(0);
 
@@ -64,13 +62,13 @@ public class JewelProduct extends Product {
 		this.size = size;
 	}
 
-//	public Set<Material> getMaterials() {
-//		return materials;
-//	}
-//
-//	public void setMaterials(Set<Material> materials) {
-//		this.materials = materials;
-//	}
+	public Set<Material> getMaterials() {
+		return materials;
+	}
+
+	public void setMaterials(Set<Material> materials) {
+		this.materials = materials;
+	}
 
 	public Image getImage() {
 		return image;

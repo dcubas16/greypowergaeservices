@@ -7,6 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(propagation = Propagation.REQUIRED)
 public interface ChemicalProductDAO {
 
-	public Long createProduct(Product product);
+	public int createProduct(Product product);
 
 }

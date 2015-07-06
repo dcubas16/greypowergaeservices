@@ -4,6 +4,6 @@ import org.greypowergaeservices.entities.Product;
 
 public interface ProductManager {
 	
-	public Long createProduct(Product product);
+	public int createProduct(Product product);
 	
 }

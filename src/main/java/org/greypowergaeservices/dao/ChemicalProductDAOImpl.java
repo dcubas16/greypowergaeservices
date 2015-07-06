@@ -14,7 +14,7 @@ public class ChemicalProductDAOImpl implements ChemicalProductDAO {
 
 	@Override
 	@Transactional
-	public Long createProduct(Product product) {
+	public int createProduct(Product product) {
 //		 Transaction trans=session.beginTransaction();
 		sessionFactory.getCurrentSession().save(product);
 

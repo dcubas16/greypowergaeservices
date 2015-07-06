@@ -8,9 +8,9 @@ public abstract class ProductFactory {
 	@Autowired
 	ProductManager productManager;
 	
-	public Long createProduct(Product product) {
+	public int createProduct(Product product) {
 		
-		Long id = productManager.createProduct(product);
+		int id = productManager.createProduct(product);
 		
 		return id;
 	}

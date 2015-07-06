@@ -17,7 +17,7 @@ public class WhenCreateChenicalProduct  extends TestConfigurator {
 	@Test
 	public void thenShouldCreateChemicalProduct(){
 		
-		Long uuid = productService.createProduct(ProductMother.getChemicalProduct());
+		int uuid = productService.createProduct(ProductMother.getChemicalProduct());
 		
 		assertNotNull(uuid);
 	}

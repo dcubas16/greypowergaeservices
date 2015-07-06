@@ -18,7 +18,7 @@ public abstract class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="ID")
-	private Long id;
+	private int id;
 	
 	@Column(name="NAME")
 	private String name;
@@ -30,7 +30,7 @@ public abstract class Product {
 		super();
 	}
 	
-	public Product(Long id, String name, String description) {
+	public Product(int id, String name, String description) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -43,10 +43,10 @@ public abstract class Product {
 		this.description = description;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {

@@ -12,7 +12,7 @@ public class ProductServiceImpl implements ProductService {
 	ChemicalProductFactory productFactory;// = new ChemicalProductFactory();
 	
 	@Override
-	public Long createProduct(Product product) {
+	public int createProduct(Product product) {
 
 		return productFactory.createProduct(product);
 
