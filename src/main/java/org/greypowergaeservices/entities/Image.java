@@ -1,16 +1,13 @@
 package org.greypowergaeservices.entities;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,7 +24,47 @@ public class Image {
 	@Column(name="IS_MAIN")
 	private boolean isMain;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id", cascade=CascadeType.ALL, targetEntity=JewelProduct.class)
-	private Set<JewelProduct> jewelProducts = new HashSet<JewelProduct>(0);
+	public Image(String path, boolean isMain) {
+		super();
+		this.path = path;
+		this.isMain = isMain;
+	}
+
+	public Image(String path, boolean isMain, JewelProduct jewelProduct) {
+		super();
+		this.path = path;
+		this.isMain = isMain;
+		this.jewelProduct = jewelProduct;
+	}
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "PRODUCT_ID", nullable = true)
+	private JewelProduct jewelProduct;
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public boolean isMain() {
+		return isMain;
+	}
+
+	public void setMain(boolean isMain) {
+		this.isMain = isMain;
+	}
+
+	public JewelProduct getJewelProduct() {
+		return jewelProduct;
+	}
+
+	public void setJewelProduct(JewelProduct jewelProduct) {
+		this.jewelProduct = jewelProduct;
+	}
+
+
 	
 }

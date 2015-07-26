@@ -8,10 +8,12 @@ import org.greypowergaeservices.test.util.ProductMother;
 import org.greypowergaeservices.test.util.TestConfigurator;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
-public class WhenCreateChenicalProduct  extends TestConfigurator {
+public class WhenCreateChemicalProduct  extends TestConfigurator {
 
 	@Autowired
+	@Qualifier("chemicalProductServiceImpl")
 	ProductService productService; 
 	
 	@Test

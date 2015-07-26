@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public class ChemicalProductDAOImpl implements ChemicalProductDAO {
+public class ProductDAOImpl implements ProductDAO {
 
 	@Autowired(required = true)
 	private SessionFactory sessionFactory;

@@ -1,24 +1,23 @@
-package org.greypowergaeservices.business;
+package org.greypowergaeservices.services;
 
-import org.greypowergaeservices.dao.ProductDAO;
+import org.greypowergaeservices.business.ProductFactory;
 import org.greypowergaeservices.entities.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ChemicalProductManagerImpl implements ProductManager {
+public class JewelProductServiceImpl implements ProductService {
 
 	@Autowired
-	@Qualifier("productDAOImpl")
-	private ProductDAO productDAO; 
+	@Qualifier("jewelProductFactory")
+	ProductFactory productFactory;
 	
 	@Override
 	public int createProduct(Product product) {
 
-		int uuid = productDAO.createProduct(product);
-		
-		return uuid;
+		return productFactory.createProduct(product);
+
 	}
 
 }

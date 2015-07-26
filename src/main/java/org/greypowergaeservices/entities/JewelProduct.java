@@ -5,11 +5,13 @@ import java.util.Set;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.ManyToMany;
 
@@ -30,14 +32,12 @@ public class JewelProduct extends Product {
 	@JoinColumn(name = "SIZE_ID", nullable = true)
 	private Size size;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "IMAGE_ID", nullable = true)
-	private Image image;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id", cascade=CascadeType.ALL, targetEntity=Image.class)
+	private Set<Image> images = new HashSet<Image>(0);
 
 	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "jewelProducts")
 	private Set<Material> materials = new HashSet<Material>(0);
 
-	
 	public int getQuantity() {
 		return quantity;
 	}
@@ -70,12 +70,13 @@ public class JewelProduct extends Product {
 		this.materials = materials;
 	}
 
-	public Image getImage() {
-		return image;
+	public Set<Image> getImages() {
+		return images;
 	}
 
-	public void setImage(Image image) {
-		this.image = image;
+	public void setImages(Set<Image> images) {
+		this.images = images;
 	}
+
 
 }

@@ -4,10 +4,8 @@ import org.greypowergaeservices.dao.ProductDAO;
 import org.greypowergaeservices.entities.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
 
-@Service
-public class ChemicalProductManagerImpl implements ProductManager {
+public class JewelProductManagerImpl implements ProductManager {
 
 	@Autowired
 	@Qualifier("productDAOImpl")

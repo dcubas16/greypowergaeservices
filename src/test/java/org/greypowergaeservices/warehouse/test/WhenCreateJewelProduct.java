@@ -8,18 +8,20 @@ import org.greypowergaeservices.test.util.ProductMother;
 import org.greypowergaeservices.test.util.TestConfigurator;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class WhenCreateJewelProduct  extends TestConfigurator {
 
 	@Autowired
+	@Qualifier("jewelProductServiceImpl")
 	ProductService productService; 
 	
 	@Test
 	public void thenShouldCreateJewelProduct(){
 		
-//		Long uuid = productService.createProduct(ProductMother.getJewelProduct());
+		int uuid = productService.createProduct(ProductMother.getJewelProduct());
 		
-		assertNotNull("1");
+		assertNotNull(uuid);
 	}
 	
 }

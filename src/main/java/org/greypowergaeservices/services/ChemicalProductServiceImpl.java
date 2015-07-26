@@ -1,15 +1,17 @@
 package org.greypowergaeservices.services;
 
-import org.greypowergaeservices.business.ChemicalProductFactory;
+import org.greypowergaeservices.business.ProductFactory;
 import org.greypowergaeservices.entities.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductServiceImpl implements ProductService {
+public class ChemicalProductServiceImpl implements ProductService {
 
 	@Autowired
-	ChemicalProductFactory productFactory;// = new ChemicalProductFactory();
+	@Qualifier("chemicalProductFactory")
+	ProductFactory productFactory;
 	
 	@Override
 	public int createProduct(Product product) {
