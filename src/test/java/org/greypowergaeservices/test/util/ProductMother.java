@@ -21,23 +21,32 @@ public class ProductMother {
 	}
 	
 	public static Product getJewelProduct() {
+		
+		Material material = new Material(1, "material1");
+		
 		JewelProduct jewelProduct = new JewelProduct();
+		
 		jewelProduct.setName("J1");
 		jewelProduct.setDescription("J1 Description");
-		jewelProduct.setImages(getImage(jewelProduct));
-		jewelProduct.setMaterials(getMaterials(jewelProduct));
+		
 		jewelProduct.setQuantity(15);
-		jewelProduct.setSize(getSize(jewelProduct));
 		jewelProduct.setUnitPrice(123.25);
+		jewelProduct.setImages(getImage(jewelProduct));
+		jewelProduct.setSize(getSize(jewelProduct));
+		
+		material.getJewelProducts().add(jewelProduct);
+		jewelProduct.getMaterials().add(material);
+		
 		return jewelProduct;
 		
 	}
 	
-	private static Set<Material> getMaterials(JewelProduct jewelProduct) {
+	private static Set<Material> getMaterials(Set<JewelProduct> jewelProducts) {
 		Set<Material> materials = new HashSet<Material>();
 		
-		materials.add(new Material(1L, "material1"));
-		materials.add(new Material(2L, "material2"));
+//		materials.add(new Material(1, "material1",jewelProducts));
+//		materials.add(new Material(2, "material2",jewelProducts));
+		
 		return materials;
 	}
 

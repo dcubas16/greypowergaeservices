@@ -18,6 +18,7 @@
 		<mapping class="org.greypowergaeservices.entities.Product" />
 		<mapping class="org.greypowergaeservices.entities.ChemicalProduct" />
 		<mapping class="org.greypowergaeservices.entities.JewelProduct" />
+<!-- 		<mapping class="org.greypowergaeservices.entities.Product_Material" /> -->
 		
 	</session-factory>
 </hibernate-configuration>

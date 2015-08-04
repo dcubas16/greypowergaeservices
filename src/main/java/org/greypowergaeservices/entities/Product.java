@@ -1,5 +1,7 @@
 package org.greypowergaeservices.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,12 +10,20 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 
 @Entity
-@Table(name = "PRODUCT")
+@Table(name = "PRODUCT", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "ID"),
+        @UniqueConstraint(columnNames = "NAME") })
 @Inheritance(strategy=InheritanceType.JOINED)
-public abstract class Product {
+public abstract class Product implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2432918694115843198L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

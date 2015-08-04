@@ -1,9 +1,9 @@
 package org.greypowergaeservices.entities;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,26 +12,28 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "MATERIAL")
-public class Material {
+@Table(name = "MATERIAL", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "ID"),
+        @UniqueConstraint(columnNames = "NAME") })
+public class Material implements Serializable{
+
+	private static final long serialVersionUID = 7434212174445619710L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="ID")
-	private Long id;
+	private int id;
 	
 	@Column(name="NAME")
 	private String name;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "PRODUCT_MATERIAL", joinColumns = { @JoinColumn(name = "MATERIAL_ID", nullable = false, updatable = false) }, 
-			inverseJoinColumns = { @JoinColumn(name = "PRODUCT_ID",nullable = false, updatable = false) })
-	private Set<JewelProduct> jewelProducts = new HashSet<JewelProduct>(0);
+	@ManyToMany(mappedBy = "materials")
+	private Set<JewelProduct> jewelProducts = new HashSet<JewelProduct>();
 
-	public Material(Long id, String name, Set<JewelProduct> jewelProducts) {
+	public Material(int id, String name, Set<JewelProduct> jewelProducts) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -39,18 +41,18 @@ public class Material {
 	}
 
 	
-	public Material(Long id, String name) {
+	public Material(int id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
 	}
 
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

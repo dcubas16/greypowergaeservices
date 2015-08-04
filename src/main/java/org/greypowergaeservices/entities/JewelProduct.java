@@ -10,14 +10,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.ManyToMany;
 
 @Entity
 @Table(name = "JEWEL_PRODUCT")
 @AttributeOverrides({
+		@AttributeOverride(name = "id", column = @Column(name = "ID")),
 		@AttributeOverride(name = "name", column = @Column(name = "NAME")),
 		@AttributeOverride(name = "description", column = @Column(name = "DESCRIPTION")) })
 public class JewelProduct extends Product {
@@ -33,10 +35,12 @@ public class JewelProduct extends Product {
 	private Size size;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id", cascade=CascadeType.ALL, targetEntity=Image.class)
-	private Set<Image> images = new HashSet<Image>(0);
+	private Set<Image> images = new HashSet<Image>();
 
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "jewelProducts")
-	private Set<Material> materials = new HashSet<Material>(0);
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "PRODUCT_MATERIAL", joinColumns = { @JoinColumn(name = "PRODUCT_ID", nullable = false) }, 
+			inverseJoinColumns = { @JoinColumn(name = "MATERIAL_ID",nullable = false) })
+	private Set<Material> materials = new HashSet<Material>();
 
 	public int getQuantity() {
 		return quantity;
